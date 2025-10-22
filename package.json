@@ -1,0 +1,14 @@
+{
+  "name": "rodados-donnet",
+  "version": "1.0.0",
+  "description": "Sistema de cotizaciones de Rodados Donnet",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview"
+  },
+  "keywords": ["bicicletas", "repuestos", "cotizaciones"],
+  "author": "Rodados Donnet",
+  "license": "MIT"
+}

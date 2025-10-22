@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema de cotizaciones de Rodados Donnet — búsqueda rápida de bicicletas y repuestos.">
+    <title>Rodados Donnet - Sistema de Precios</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ENCABEZADO -->
+        <header>
+            <div class="header-contenedor">
+                
+                <!-- TEXTO DEL LOGO -->
+                <div class="texto-logo">
+                    <div class="logo-temp">
+                        <span class="rodados">RODADOS</span>
+                        <span class="donnet">DONNET</span>
+                    </div>
+                    <p class="slogan">Software de cotizaciones</p>
+                </div>
+                
+                <!-- IMAGEN DEL LOGO -->
+                <div class="imagen-logo">
+                    <img src="./assets/imagenes/logo.png" 
+                         alt="Rodados Donnet" 
+                         onerror="this.src='./assets/imagenes/logo-fallback.png';">
+                </div>
+            </div>
+        </header>
+
+        <!-- BUSCADOR DE BICICLETAS -->
+        <section class="buscador-seccion">
+            <h2 class="titulo-buscador">🚴‍♂️ Buscador de Bicicletas</h2>
+            <div class="search-section">
+                <input 
+                    type="text" 
+                    id="searchBicicletas" 
+                    placeholder="Buscar bicicleta por código o nombre..." 
+                    onkeypress="handleKeyPress(event, 'bicicletas')"
+                    aria-label="Buscar bicicleta por código o nombre">
+                <button onclick="buscarProducto('bicicletas')">Buscar Bicicletas</button>
+                <button onclick="limpiarBusqueda('bicicletas')" class="secondary">Limpiar</button>
+            </div>
+            <div id="resultadoBicicletas" class="resultado">
+                <p class="instrucciones">Ingrese un código o nombre para buscar bicicletas</p>
+            </div>
+        </section>
+
+        <!-- BUSCADOR DE REPUESTOS -->
+        <section class="buscador-seccion">
+            <h2 class="titulo-buscador">🔧 Buscador de Repuestos</h2>
+            <div class="search-section">
+                <input 
+                    type="text" 
+                    id="searchRepuestos" 
+                    placeholder="Buscar repuesto por código o nombre..." 
+                    onkeypress="handleKeyPress(event, 'repuestos')"
+                    aria-label="Buscar repuesto por código o nombre">
+                <button onclick="buscarProducto('repuestos')">Buscar Repuestos</button>
+                <button onclick="limpiarBusqueda('repuestos')" class="secondary">Limpiar</button>
+            </div>
+            <div id="resultadoRepuestos" class="resultado">
+                <p class="instrucciones">Ingrese un código o nombre para buscar repuestos</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./script.js" defer></script>
+</body>
+</html>
+

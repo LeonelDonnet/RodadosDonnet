@@ -1,0 +1,497 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #FFFFFF;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* HEADER CON LOGO */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: #000000;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+    border: 3px solid #FFD700;
+}
+
+.logo {
+    max-width: 400px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* LOGO DE TEXTO MEJORADO */
+.logo-temp {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-size: 4em;
+    color: #FFD700;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px;
+    line-height: 1;
+    letter-spacing: 3px;
+}
+
+.logo-temp .rodados {
+    color: #FFFFFF;
+    font-size: 0.7em;
+    display: block;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.logo-temp .donnet {
+    color: #FFD700;
+    font-size: 1em;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+header .slogan {
+    color: #FFD700;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* SECCIONES DE BUSCADORES */
+.buscador-seccion {
+    margin-bottom: 40px;
+}
+
+.titulo-buscador {
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid #FFD700;
+    font-weight: bold;
+}
+
+/* BARRA DE BÚSQUEDA MEJORADA */
+.search-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    background: #2d2d2d;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    border: 2px solid #444444;
+    align-items: center;
+}
+
+#searchBicicletas,
+#searchRepuestos {
+    flex: 1;
+    padding: 16px 20px;
+    border: 2px solid #666666;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #1a1a1a;
+    color: #FFFFFF;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 54px;
+}
+
+#searchBicicletas::placeholder,
+#searchRepuestos::placeholder {
+    color: #999999;
+    font-size: 15px;
+}
+
+#searchBicicletas:focus,
+#searchRepuestos:focus {
+    outline: none;
+    border-color: #FFD700;
+    background: #2d2d2d;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* BOTONES MEJORADOS */
+button {
+    padding: 16px 30px;
+    background: #FFD700;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 54px;
+    white-space: nowrap;
+}
+
+button:hover {
+    background: #FFC400;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 212, 0, 0.4);
+}
+
+button.secondary {
+    background: #666666;
+    color: #FFFFFF;
+}
+
+button.secondary:hover {
+    background: #555555;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(102, 102, 102, 0.4);
+}
+
+/* RESULTADOS */
+.resultado {
+    background: #2d2d2d;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    min-height: 150px;
+    border: 2px solid #444444;
+    color: #FFFFFF;
+}
+
+.instrucciones {
+    text-align: center;
+    color: #CCCCCC;
+    font-style: italic;
+    font-size: 1.1em;
+    padding: 20px;
+}
+
+/* ESTILOS PARA PRODUCTOS */
+.producto {
+    border-bottom: 2px solid #444444;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.producto:hover {
+    background: #363636;
+    border-radius: 8px;
+    padding: 25px 15px;
+    margin: 0 -10px;
+}
+
+.producto:last-child {
+    border-bottom: none;
+}
+
+.producto-info {
+    flex: 1;
+}
+
+.producto-info h4 {
+    color: #FFD700;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+    line-height: 1.4;
+}
+
+.producto-info p {
+    margin-bottom: 8px;
+    color: #CCCCCC;
+    font-size: 1em;
+}
+
+.precio {
+    font-size: 1.4em;
+    color: #FFD700 !important;
+    font-weight: bold;
+    margin-top: 15px !important;
+}
+
+/* ESTILOS PARA MENSAJES */
+.resultado h3 {
+    color: #FFD700;
+    margin-bottom: 25px;
+    text-align: center;
+    background: #1a1a1a;
+    padding: 18px;
+    border-radius: 10px;
+    border: 2px solid #FFD700;
+    font-size: 1.4em;
+}
+
+/* MENSAJES DE ESTADO */
+.resultado p[style*="color: red"] {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ff4444;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.resultado .instrucciones {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #444444;
+    font-size: 1.1em;
+}
+
+/* DIFERENCIAR SECCIONES */
+#resultadoBicicletas {
+    border-color: #FFD700;
+}
+
+#resultadoRepuestos {
+    border-color: #3498db;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .search-section {
+        flex-direction: column;
+    }
+    
+    #searchBicicletas,
+    #searchRepuestos {
+        min-height: 50px;
+    }
+    
+    button {
+        min-height: 50px;
+        width: 100%;
+    }
+    
+    .logo-temp {
+        font-size: 2.5em;
+    }
+    
+    .logo-temp .rodados {
+        font-size: 0.6em;
+    }
+    
+    .logo-temp .donnet {
+        font-size: 0.8em;
+    }
+}
+/* HEADER CON TEXTO Y LOGO LADO A LADO */
+.header-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.texto-logo {
+    text-align: center;
+    flex: 1;
+    min-width: 300px;
+}
+
+.imagen-logo {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.imagen-logo img {
+    max-width: 350px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Texto del logo más compacto para que quede bien al lado de la imagen */
+.texto-logo .logo-temp {
+    font-family: 'Arial Black', 'Impact', sans-serif;
+    font-size: 3.5em;
+    color: #FFD700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 10px;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
+.texto-logo .logo-temp .rodados {
+    color: #FFFFFF;
+    font-size: 0.7em;
+    display: block;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.texto-logo .logo-temp .donnet {
+    color: #FFD700;
+    font-size: 1em;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.texto-logo .slogan {
+    color: #FFD700;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .header-contenedor {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .texto-logo .logo-temp {
+        font-size: 2.8em;
+    }
+    
+    .imagen-logo img {
+        max-width: 280px;
+    }
+}
+
+/* Estilos para botones de cuotas - combinando con tu paleta */
+.btn-ver-cuotas {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-ver-cuotas:hover {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.btn-ver-cuotas.activo {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.btn-ver-cuotas.activo:hover {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+/* Estilos para los planes de cuotas */
+.planes-cuotas {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.planes-container h5 {
+    margin: 0 0 12px 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.plan {
+    background: white;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #e1e8ed;
+    font-size: 0.95em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.plan strong {
+    color: #27ae60;
+    font-size: 1em;
+}
+
+.plan:nth-child(2) {
+    border-left: 3px solid #27ae60;
+}
+
+.plan:nth-child(3) {
+    border-left: 3px solid #3498db;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos para planes de cuotas - CORREGIDO COLOR DE TEXTO */
+.planes-container {
+    color: #000000 !important; /* Fuerza texto negro */
+}
+
+.planes-container h5 {
+    color: #2c3e50 !important;
+    margin: 0 0 12px 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.plan {
+    background: white;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #e1e8ed;
+    font-size: 0.95em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    color: #000000 !important; /* Texto negro */
+}
+
+.plan strong {
+    color: #27ae60 !important;
+    font-size: 1em;
+}
+
+.plan div, .plan p, .plan span, .plan br {
+    color: #000000 !important;
+}
+
+/* Asegurar que todo el texto dentro de planes sea negro */
+.planes-container * {
+    color: #000000 !important;
+}
