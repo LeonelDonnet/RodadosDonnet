@@ -57,6 +57,15 @@ function cargarRepuestosCSV() {
         });
 }
 
+//toma este como valido y no carga completos, VER
+
+
+
+
+//VER
+
+
+
 // Función de respaldo para repuestos
 function cargarRepuestosEjemplo() {
     repuestos = [
