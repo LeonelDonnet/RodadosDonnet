@@ -31,9 +31,9 @@ function cargarBicicletas() {
         });
 }
 
-// Función para cargar repuestos desde el CSV real
+// cargar repuestos desde el CSV
 function cargarRepuestosCSV() {
-    const csvUrl = './repuestos.csv';
+    const csvUrl = './data/repuestos.csv';
     
     console.log('🔄 Iniciando carga de repuestos desde:', csvUrl);
     
@@ -55,16 +55,8 @@ function cargarRepuestosCSV() {
                  <p style="color: #FFD700;">Usando datos de ejemplo por ahora...</p>`;
             cargarRepuestosEjemplo();
         });
-}
 
-//toma este como valido y no carga completos, VER
-
-
-
-
-//VER
-
-
+    }
 
 // Función de respaldo para repuestos
 function cargarRepuestosEjemplo() {
@@ -159,18 +151,16 @@ function procesarCSVRepuestos(csvText) {
 
 console.log(`🎯 RESUMEN FINAL: ${repuestosCargados} repuestos cargados de ${lineasProcesadas} líneas procesadas`);
     
-    if (repuestosCargados > 0) {
-        document.getElementById('resultadoRepuestos').innerHTML = 
-            `<p class="instrucciones">🔧 ${repuestosCargados} repuestos cargados</p>
-             <p style="color: #27ae60; font-size: 0.9em; text-align: center;">
-                ✅ Repuestos cargados correctamente. Buscá por código o nombre.
-             </p>`;
-    } else {
-        document.getElementById('resultadoRepuestos').innerHTML = 
-            `<p style="color: red;">❌ No se pudieron cargar repuestos del CSV. Revisá la consola.</p>`;
-        // Forzar carga de ejemplo si no hay datos
-        cargarRepuestosEjemplo();
-    }
+if (repuestosCargados > 0) {
+    document.getElementById('resultadoRepuestos').innerHTML = 
+        `<p class="instrucciones">🔧 ${repuestosCargados} repuestos cargados</p>`;
+} else {
+    document.getElementById('resultadoRepuestos').innerHTML = 
+        `<p style="color: red;">❌ No se pudieron cargar repuestos del CSV. Revisá la consola.</p>`;
+    // Forzar carga de ejemplo si no hay datos
+    cargarRepuestosEjemplo();
+}
+
 }
 
 // Función para determinar categoría automáticamente
@@ -199,7 +189,7 @@ function determinarCategoria(descripcion) {
 
 
 
-// Función para procesar bicicletas
+// procesar bicicletas
 function procesarBicicletas(data) {
     const lineas = data.split('\n');
     bicicletas = [];
@@ -239,7 +229,7 @@ function procesarBicicletas(data) {
     }
 }
 
-// Función de búsqueda general
+// búsqueda general
 function buscarProducto(tipo) {
     const inputId = tipo === 'bicicletas' ? 'searchBicicletas' : 'searchRepuestos';
     const resultadoId = tipo === 'bicicletas' ? 'resultadoBicicletas' : 'resultadoRepuestos';
