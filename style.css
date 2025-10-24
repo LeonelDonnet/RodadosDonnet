@@ -495,3 +495,25 @@ button.secondary:hover {
 .planes-container * {
     color: #000000 !important;
 }
+
+/* Botón de cerrar sesión FIJO */
+.logout-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #cc3333;
+}

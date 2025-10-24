@@ -3,6 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodados Donnet</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Verificar si el usuario está autenticado
+        function checkAuth() {
+            const isAuthenticated = localStorage.getItem('rodadosAuth');
+            const loginTime = localStorage.getItem('loginTime');
+            const currentTime = new Date().getTime();
+            
+            // Verificar si ha pasado más de 8 horas (28800000 ms)
+            if (!isAuthenticated || !loginTime || (currentTime - loginTime) > 28800000) {
+                localStorage.removeItem('rodadosAuth');
+                localStorage.removeItem('loginTime');
+                window.location.href = 'login.html';
+                return false;
+            }
+            return true;
+        }
+        
+        // Ejecutar la verificación
+        if (!checkAuth()) {
+            // Redirige a login
+        }
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sistema de cotizaciones de Rodados Donnet — búsqueda rápida de bicicletas y repuestos.">
     <title>Rodados Donnet - Sistema de Precios</title>
 
@@ -10,11 +42,12 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
     <div class="container">
         <!-- ENCABEZADO -->
         <header>
             <div class="header-contenedor">
-                
+
                 <!-- TEXTO DEL LOGO -->
                 <div class="texto-logo">
                     <div class="logo-temp">
@@ -30,7 +63,13 @@
                          alt="Rodados Donnet" 
                          onerror="this.src='./assets/imagenes/logo-fallback.png';">
                 </div>
+                <body>
+    <!-- Botón de cerrar sesión FIJO -->
+    <button onclick="logout()" class="logout-btn">
+        🚪 Cerrar Sesión
+    </button>         
             </div>
+            
         </header>
 
         <!-- BUSCADOR DE BICICLETAS -->
