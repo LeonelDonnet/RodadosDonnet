@@ -1,3 +1,25 @@
+
+// Verificación de autenticación en cada carga
+function verifyAuth() {
+    const isAuthenticated = localStorage.getItem('rodadosAuth');
+    const loginTime = localStorage.getItem('loginTime');
+    const currentTime = new Date().getTime();
+    
+    if (!isAuthenticated || !loginTime || (currentTime - loginTime) > 28800000) {
+        localStorage.removeItem('rodadosAuth');
+        localStorage.removeItem('loginTime');
+        window.location.href = 'login.html';
+        return;
+    }
+}
+
+// Ejecutar la verificación cuando se carga la página
+document.addEventListener('DOMContentLoaded', function() {
+    verifyAuth();
+    
+});
+
+
 // Arrays para guardar los productos
 let bicicletas = [];
 let repuestos = [];
@@ -406,4 +428,13 @@ function handleKeyPress(event, tipo) {
 
 // Debug: Verificar que las funciones estén cargadas
 console.log('✅ Script cargado - togglePlanesCuotas disponible:', typeof togglePlanesCuotas);
+
+// Función para cerrar sesión
+function logout() {
+    localStorage.removeItem('rodadosAuth');
+    localStorage.removeItem('loginTime');
+    window.location.href = 'login.html';
+}
+
+
 
