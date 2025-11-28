@@ -118,37 +118,28 @@ function procesarCSVRepuestos(csvText) {
         console.log(`Línea ${i}: "${lineas[i]}"`);
     }
 
-    // Buscar la línea donde empiezan los datos reales (después de los ;;;)
-    let encontroDatos = false;
-    
+    // Procesar TODAS las líneas que tengan formato de datos
     for (let i = 0; i < lineas.length; i++) {
         const linea = lineas[i].trim();
         lineasProcesadas++;
         
         // Saltar líneas vacías o con solo ";"
-        if (!linea || linea === ';;;' || linea.startsWith(';REPUESTOS')) {
+        if (!linea || linea === ';;;' || linea === ';' || linea.startsWith(';REPUESTOS')) {
             continue;
         }
         
-        // Buscar el encabezado de columnas
-        if (linea.includes('ARTICULO') && linea.includes('DESCRIPCION')) {
-            console.log(`✅ Encabezado encontrado en línea ${i}`);
-            encontroDatos = true;
-            continue;
-        }
-        
-        // Si encontramos el encabezado, procesar las siguientes líneas
-        if (encontroDatos && linea.includes(';')) {
+        // Verificar si es una línea de datos (formato: número;texto;precio;precio)
+        if (linea.includes(';')) {
             const columnas = linea.split(';');
             
-            // Tu CSV tiene este formato: código;descripción;costo;precio
+            // Tu CSV tiene este formato: código;descripción;costo;precio_sugerido
             if (columnas.length >= 4) {
                 const codigo = columnas[0] ? columnas[0].trim() : '';
                 const descripcion = limpiarDescripcion(columnas[1] ? columnas[1].trim() : '');
                 const precioSugerido = columnas[3] ? convertirPrecio(columnas[3].trim()) : '0';
                 
-                // Solo agregar si tiene código, descripción y precio válido
-                if (codigo && descripcion && descripcion.length > 3 && precioSugerido !== '0') {
+                // Validar que sea un producto real (código numérico, descripción válida)
+                if (codigo && !isNaN(codigo) && descripcion && descripcion.length > 3 && precioSugerido !== '0') {
                     const repuesto = {
                         codigo: codigo,
                         descripcion: descripcion,
@@ -169,21 +160,19 @@ function procesarCSVRepuestos(csvText) {
         }
     }
 
-
-
-console.log(`🎯 RESUMEN FINAL: ${repuestosCargados} repuestos cargados de ${lineasProcesadas} líneas procesadas`);
+    console.log(`🎯 RESUMEN FINAL: ${repuestosCargados} repuestos cargados de ${lineasProcesadas} líneas procesadas`);
     
-if (repuestosCargados > 0) {
-    document.getElementById('resultadoRepuestos').innerHTML = 
-        `<p class="instrucciones">🔧 ${repuestosCargados} repuestos cargados</p>`;
-} else {
-    document.getElementById('resultadoRepuestos').innerHTML = 
-        `<p style="color: red;">❌ No se pudieron cargar repuestos del CSV. Revisá la consola.</p>`;
-    // Forzar carga de ejemplo si no hay datos
-    cargarRepuestosEjemplo();
+    if (repuestosCargados > 0) {
+        document.getElementById('resultadoRepuestos').innerHTML = 
+            `<p class="instrucciones">🔧 ${repuestosCargados} repuestos cargados</p>`;
+    } else {
+        document.getElementById('resultadoRepuestos').innerHTML = 
+            `<p style="color: red;">❌ No se pudieron cargar repuestos del CSV. Revisá la consola.</p>`;
+        // Forzar carga de ejemplo si no hay datos
+        cargarRepuestosEjemplo();
+    }
 }
 
-}
 
 // Función para determinar categoría automáticamente
 function determinarCategoria(descripcion) {
